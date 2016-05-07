@@ -23,5 +23,6 @@ while True:
                         GPIO.output(pin, GPIO.HIGH)
                         time.sleep(0.1)
                         GPIO.output(pin, GPIO.LOW)
+                GPIO.output(pin, GPIO.HIGH)
         time.sleep(1)
 GPIO.cleanup()
