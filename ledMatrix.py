@@ -21,7 +21,7 @@ while True:
                 for pin in pins:
                         GPIO.setup(pin, GPIO.OUT)
                         GPIO.output(pin, GPIO.HIGH)
-                        time.sleep(0.01)
+                        time.sleep(0.1)
                         GPIO.output(pin, GPIO.LOW)
         time.sleep(1)
 GPIO.cleanup()
