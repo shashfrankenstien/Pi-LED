@@ -9,15 +9,16 @@ def blink(i):
 
 GPIO.setmode(GPIO.BOARD)
 pins = [29, 31, 33, 35, 37, 36, 38, 40]
+gnds = [7, 11,13]
 pinsRev = pins[::-1]
-ex=[0,1,2,3,4,5,6,7]
+# ex=[0,1,2,3,4,5,6,7]
 GPIO.setup(7, GPIO.OUT)
 GPIO.output(7, GPIO.LOW)
 while True:
-        for x in ex:
-                GPIO.setup(pins[x], GPIO.OUT)
-                GPIO.output(pins[x], GPIO.HIGH)
+        for pin in pins:
+                GPIO.setup(pin, GPIO.OUT)
+                GPIO.output(pin, GPIO.HIGH)
                 time.sleep(0.01)
-                GPIO.output(pins[x], GPIO.LOW)
+                GPIO.output(pin, GPIO.LOW)
         time.sleep(1)
 GPIO.cleanup()
