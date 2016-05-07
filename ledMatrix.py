@@ -16,6 +16,7 @@ pinsRev = pins[::-1]
 # GPIO.output(7, GPIO.LOW)
 while True:
         for gnd in gnds:
+                GPIO.setmode(GPIO.BOARD)
                 GPIO.setup(gnd, GPIO.OUT)
                 GPIO.output(gnd, GPIO.LOW)
                 for pin in pins:
@@ -23,6 +24,6 @@ while True:
                         GPIO.output(pin, GPIO.HIGH)
                         time.sleep(0.1)
                         GPIO.output(pin, GPIO.LOW)
-                GPIO.output(pin, GPIO.HIGH)
+                GPIO.cleanup()
         time.sleep(1)
 GPIO.cleanup()
