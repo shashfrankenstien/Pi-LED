@@ -19,10 +19,20 @@ def rain(gnds, pins):
                                 GPIO.output(pin, GPIO.HIGH)
                                 time.sleep(0.01)
                                 GPIO.output(pin, GPIO.LOW)
-                                blink(pin)
                         GPIO.cleanup()
                         time.sleep(0.5)
                 #time.sleep(1)
+
+def each_high((pin,gnd)):
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setup(gnd, GPIO.OUT)
+        GPIO.output(gnd, GPIO.LOW)
+        GPIO.setup(pin, GPIO.OUT)
+        GPIO.output(pin, GPIO.HIGH)
+
+def each_low((pin,gnd)):
+        GPIO.output(pin, GPIO.LOW)
+        GPIO.cleanup()
 
 
 GPIO.setmode(GPIO.BOARD)
@@ -30,9 +40,19 @@ pins = [29, 31, 33, 35, 37, 36, 38, 40]
 gnds = [7, 13, 11]
 pinsRev = pins[::-1]
 
-# GPIO.setup(7, GPIO.OUT)
-# GPIO.output(7, GPIO.LOW)
+pin_config = [(29, 11), (29, 13), (29, 7),
+                (31, 11), (31, 13), (31, 7),
+                (33, 11), (33, 13), (33, 7),
+                (35, 11), (35, 13), (35, 7),
+                (37, 11), (37, 13), (37, 7),
+                (36, 11), (36, 13), (36, 7),
+                (38, 11), (38, 13), (38, 7),
+                (40, 11), (40, 13), (40, 7)]
+# rain(gnds, pins)
 
-rain(gnds, pins)
+for each in pin_config:
+        each_high(each)
+        time.sleep(0.5)
+        each_low(each)
 
 GPIO.cleanup()
