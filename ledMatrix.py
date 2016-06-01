@@ -24,7 +24,7 @@ def rain(gnds, pins):
                 #time.sleep(1)
 
 def each_high((pin,gnd)):
-        GPIO.setmode(GPIO.BOARD)
+        #GPIO.setmode(GPIO.BOARD)
         GPIO.setup(gnd, GPIO.OUT)
         GPIO.output(gnd, GPIO.LOW)
         GPIO.setup(pin, GPIO.OUT)
@@ -50,15 +50,16 @@ pin_config = {0:(29, 7), 1:(29, 11), 2:(29, 13),
                 18:(38, 7), 19:(38, 11), 20:(38, 13),
                 21:(40, 7), 22:(40, 11), 23:(40, 13)}
 # rain(gnds, pins)
-x = 0
-while x < 23:
-        each_high(pin_config[x])
-        # each_high(pin_config[x+1])
+while True:
+	indices=[0,1,2,5,4,3,6,7,8,11,10,9,12,13,14,17,16,15,18,19,20,23,22,21]
+	for x in indices:
+		GPIO.setmode(GPIO.BOARD)
+        	each_high(pin_config[x])
+        	#each_high(pin_config[23-x])
 
-        time.sleep(0.5)
-        each_low(pin_config[x])
-        # each_low(pin_config[x+1])
-        x+=1
+        	time.sleep(0.1)
+        	each_low(pin_config[x])
+        	#each_low(pin_config[23-x])
 # GPIO.cleanup()
 
 
