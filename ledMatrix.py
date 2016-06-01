@@ -51,17 +51,21 @@ pin_config = {0:(29, 7), 1:(29, 11), 2:(29, 13),
                 21:(40, 7), 22:(40, 11), 23:(40, 13)}
 # rain(gnds, pins)
 while True:
-	# zigzag=[0,1,2,5,4,3,6,7,8,11,10,9,12,13,14,17,16,15,18,19,20,23,22,21]
+	zigzag=[0,1,2,5,4,3,6,7,8,11,10,9,12,13,14,17,16,15,18,19,20,23,22,21]
+        zigzag_reverse = zigzag[::-1]
+        zigzag.extend(zigzag_reverse)
         zigzag_wide=[0,1,2,5,8,7,6,9,12,13,14,17,20,19,18,21,22,23,20,17,16,15,12,9,10,11,8,5,4,3,]
 	for x in zigzag_wide:
 		GPIO.setmode(GPIO.BOARD)
         	each_high(pin_config[x])
-        	#each_high(pin_config[23-x])
-
-        	time.sleep(0.1)
+        	time.sleep(0.15)
         	each_low(pin_config[x])
-        	#each_low(pin_config[23-x])
-# GPIO.cleanup()
+        for x in zigzag:
+                GPIO.setmode(GPIO.BOARD)
+                each_high(pin_config[x])
+                time.sleep(0.1)
+                each_low(pin_config[x])
+
 
 
 GPIO.cleanup()
