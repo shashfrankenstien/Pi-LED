@@ -31,10 +31,8 @@ def each_high((pin,gnd)):
         GPIO.output(pin, GPIO.HIGH)
 
 def each_low((pin,gnd)):
-        try:
-                GPIO.output(pin, GPIO.LOW)
-        except: pass
-        GPIO.cleanup()
+        GPIO.output(pin, GPIO.LOW)
+        
 
 
 GPIO.setmode(GPIO.BOARD)
@@ -62,6 +60,7 @@ while x < 24:
         each_low(pin_config[x+1])
         each_low(pin_config[x+2])
         each_low(pin_config[x+3])
+# GPIO.cleanup()
 
 
 GPIO.cleanup()
