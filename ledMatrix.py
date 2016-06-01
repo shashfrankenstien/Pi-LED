@@ -32,7 +32,6 @@ def each_high((pin,gnd)):
 
 def each_low((pin,gnd)):
         GPIO.output(pin, GPIO.LOW)
-        GPIO.cleanup()
         
 
 
@@ -49,16 +48,17 @@ pin_config = {0:(29, 7), 1:(29, 11), 2:(29, 13),
                 15:(36, 7), 16:(36, 11), 17:(36, 13),
                 18:(38, 7), 19:(38, 11), 20:(38, 13),
                 21:(40, 7), 22:(40, 11), 23:(40, 13)}
-rain(gnds, pins)
-# x = 0
-# while x < 23:
-#         each_high(pin_config[x])
+# rain(gnds, pins)
+x = 0
+while x < 23:
+        each_high(pin_config[x])
+        each_high(pin_config[x+1])
 
-#         time.sleep(0.5)
-#         each_low(pin_config[x])
-
-
-
+        time.sleep(0.5)
+        each_low(pin_config[x])
+        each_low(pin_config[x+1])
+        x+=1
+# GPIO.cleanup()
 
 
 GPIO.cleanup()
