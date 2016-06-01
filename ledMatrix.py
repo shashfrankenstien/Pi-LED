@@ -31,7 +31,9 @@ def each_high((pin,gnd)):
         GPIO.output(pin, GPIO.HIGH)
 
 def each_low((pin,gnd)):
-        GPIO.output(pin, GPIO.LOW)
+        try:
+                GPIO.output(pin, GPIO.LOW)
+        except: pass
         GPIO.cleanup()
 
 
