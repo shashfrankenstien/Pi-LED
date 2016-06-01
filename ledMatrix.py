@@ -32,6 +32,7 @@ def each_high((pin,gnd)):
 
 def each_low((pin,gnd)):
         GPIO.output(pin, GPIO.LOW)
+        GPIO.cleanup()
         
 
 
