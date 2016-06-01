@@ -52,11 +52,11 @@ pin_config = {0:(29, 7), 1:(29, 11), 2:(29, 13),
 x = 0
 while x < 23:
         each_high(pin_config[x])
-        each_high(pin_config[x+1])
+        # each_high(pin_config[x+1])
 
         time.sleep(0.5)
         each_low(pin_config[x])
-        each_low(pin_config[x+1])
+        # each_low(pin_config[x+1])
         x+=1
 # GPIO.cleanup()
 
