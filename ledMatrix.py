@@ -66,37 +66,37 @@ while True:
                 each_high(pin_config[x])
                 time.sleep(0.07)
                 each_low(pin_config[x])
-        for x in xrange(200):
+        for x in xrange(100):
                 y = random.randint(0, 23)
                 GPIO.setmode(GPIO.BOARD)
                 each_high(pin_config[y])
                 time.sleep(0.01)
                 each_low(pin_config[y])
-        for x in xrange(200):
+        for x in xrange(50):
                 y = random.randint(0, 11)
                 GPIO.setmode(GPIO.BOARD)
                 each_high(pin_config[y])
                 time.sleep(0.01)
                 each_low(pin_config[y])
-        for x in xrange(200):
+        for x in xrange(50):
                 y = random.randint(12, 23)
                 GPIO.setmode(GPIO.BOARD)
                 each_high(pin_config[y])
                 time.sleep(0.01)
                 each_low(pin_config[y])
-        for x in xrange(200):
+        for x in xrange(30):
                 y = random.randint(0, 8)
                 GPIO.setmode(GPIO.BOARD)
                 each_high(pin_config[y])
                 time.sleep(0.01)
                 each_low(pin_config[y])
-        for x in xrange(200):
+        for x in xrange(30):
                 y = random.randint(9, 14)
                 GPIO.setmode(GPIO.BOARD)
                 each_high(pin_config[y])
                 time.sleep(0.01)
                 each_low(pin_config[y])
-        for x in xrange(200):
+        for x in xrange(30):
                 y = random.randint(15, 23)
                 GPIO.setmode(GPIO.BOARD)
                 each_high(pin_config[y])
