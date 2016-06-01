@@ -63,7 +63,7 @@ while True:
         for x in zigzag:
                 GPIO.setmode(GPIO.BOARD)
                 each_high(pin_config[x])
-                time.sleep(0.1)
+                time.sleep(0.07)
                 each_low(pin_config[x])
 
 
