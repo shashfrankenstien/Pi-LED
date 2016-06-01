@@ -49,10 +49,17 @@ pin_config = {0:(29, 7), 1:(29, 11), 2:(29, 13),
                 18:(38, 7), 19:(38, 11), 20:(38, 13),
                 21:(40, 7), 22:(40, 11), 23:(40, 13)}
 # rain(gnds, pins)
-
-for key, each in pin_config.iteritems():
-        each_high(each)
+x = 0
+while x < 24:
+        each_high(pin_config[x])
+        each_high(pin_config[x+1])
+        each_high(pin_config[x+2])
+        each_high(pin_config[x+3])
         time.sleep(0.5)
-        each_low(each)
+        each_low(pin_config[x])
+        each_low(pin_config[x+1])
+        each_low(pin_config[x+2])
+        each_low(pin_config[x+3])
+
 
 GPIO.cleanup()
