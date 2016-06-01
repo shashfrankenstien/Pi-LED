@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import RPi.GPIO as GPIO
 import time
+import random
 
 def blink(i):
         GPIO.output(i, GPIO.HIGH)
@@ -65,7 +66,12 @@ while True:
                 each_high(pin_config[x])
                 time.sleep(0.07)
                 each_low(pin_config[x])
-
+        for x in xrange(50):
+                y = random.randint(0, 23)
+                GPIO.setmode(GPIO.BOARD)
+                each_high(pin_config[y])
+                time.sleep(0.01)
+                each_low(pin_config[y])
 
 
 GPIO.cleanup()
